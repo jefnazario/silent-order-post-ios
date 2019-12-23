@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     private func makePost(accessToken: String) {
         sdk.sendCardData(accessToken: accessToken,
                          cardHolderName: "Joselito Barbacena",
-                         cardNumber: "",
+                         cardNumber: "4000000000001091",
                          cardExpirationDate: "10/2029",
                          cardCvv: "621",
                          enableBinQuery: true,
@@ -79,10 +79,6 @@ class ViewController: UIViewController {
         request.httpMethod = "POST"
         request.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
         request.allHTTPHeaderFields = ["Content-Type": "application/x-www-form-urlencoded"]
-        
-//        let parameters = ["merchantid": merchantId]
-//        let postData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
-//        request.httpBody = postData
         
         let task = session.dataTask(with: request, completionHandler: { (result, response, error) in
             print(response ?? "Nada")
