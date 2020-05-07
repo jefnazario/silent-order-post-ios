@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "CieloSilentOrderPost"
-  spec.version      = "1.0.1"
+  spec.version      = "1.0.2"
   spec.summary      = "Cielo silent order post it's an easy way to validate credit card and get a valid token."
 
   spec.description  = <<-DESC
@@ -33,5 +33,7 @@ Pod::Spec.new do |spec|
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.source_files  = "SilentOrderPost/*.*"
+  spec.source_files  = "SilentOrderPost/SilentOrderPost/**/*.{h,m,swift,framework}"
+  spec.exclude_files = "SilentOrderPost/SilentOrderPostExample/*.*"
 
 end
