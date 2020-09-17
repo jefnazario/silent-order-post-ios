@@ -38,7 +38,7 @@ class RemoteDatasource {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let sdkName = "CieloOAuth-iOS"
+        let sdkName = "CieloSilentOrderPost-iOS"
         guard let bundle = Bundle(identifier: "com.jnazario.SilentOrderPost") else {
             onError(ErrorResult(errorCode: "-1", errorMessage: "Não foi possível obter o número da versão para registro no servidor."))
             return
@@ -61,8 +61,6 @@ class RemoteDatasource {
         guard let postData = try? JSONSerialization.data(withJSONObject: params, options: []) else { return }
         
         request.httpBody = postData as Data
-        
-        //request.setValue("\(authenticationType) \(token)", forHTTPHeaderField: "Authorization")
         
         let task = session.dataTask(with: request, completionHandler: { (result, _, error) in
             guard error == nil else {
