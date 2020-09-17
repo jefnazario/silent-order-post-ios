@@ -38,6 +38,19 @@ class RemoteDatasource {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
+        let sdkName = "CieloOAuth-iOS"
+        guard let bundle = Bundle(identifier: "com.jnazario.SilentOrderPost") else {
+            onError(ErrorResult(errorCode: "-1", errorMessage: "Não foi possível obter o número da versão para registro no servidor."))
+            return
+        }
+        
+        guard let buildVersion = bundle.infoDictionary?["CFBundleShortVersionString"] as? String else {
+            onError(ErrorResult(errorCode: "-1", errorMessage: "Não foi possível obter o número da versão para registro no servidor."))
+            return
+        }
+        
+        request.setValue("\(sdkName)@\(buildVersion)", forHTTPHeaderField: "x-sdk-version")
+        
         let params: [String: Any] = ["AccessToken": accessToken,
                                      "HolderName": cardHolderName,
                                      "RawNumber": cardNumber,

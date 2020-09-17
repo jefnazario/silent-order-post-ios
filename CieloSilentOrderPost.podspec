@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   spec.name         = "CieloSilentOrderPost"
-  spec.version      = "1.0.2"
+  spec.version      = "1.0.3"
   spec.summary      = "Cielo silent order post it's an easy way to validate credit card and get a valid token."
 
   spec.description  = <<-DESC

@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     }
     
     @objc func startSilentOrder() {
-        getAccessToken(merchantId: "538c04ae-f377-4da8-803b-67c812616387", onSuccess: { [weak self] (accessToken) in
+        getAccessToken(merchantId: "2A946384-03CB-4A38-A930-0A252B403380", onSuccess: { [weak self] (accessToken) in
             self?.makePost(accessToken: accessToken)
         }) { (error) in
             print(error)
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     
     private func makePost(accessToken: String) {
         sdk.sendCardData(accessToken: accessToken,
-                         cardHolderName: "Joselito Barbacena",
+                         cardHolderName: "Nome de teste",
                          cardNumber: "4000000000001091",
                          cardExpirationDate: "10/2029",
                          cardCvv: "621",
